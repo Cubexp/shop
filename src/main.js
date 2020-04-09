@@ -9,6 +9,13 @@ import axios from 'axios'
 
 //请求的根类径
 axios.defaults.baseURL = 'https://www.liulongbin.top:8888/api/private/v1/'
+//拦截器 设置
+axios.interceptors.request.use(config => {
+  console.log(config);
+  config.headers.Authorization = window.sessionStorage.getItem('token');
+  return config;
+})
+
 Vue.prototype.$http = axios
 
 Vue.config.productionTip = false

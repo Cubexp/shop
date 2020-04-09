@@ -1,16 +1,27 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-// import Home from '../views/Home.vue'
 import Login from '../views/login.vue'
 import Home from '../views/home.vue'
+import Welcome from '../views/welcome.vue'
+import Users from '../views/users.vue'
 
 Vue.use(VueRouter)
 
 const routes = [
-  { path: '/login', component: Login }, 
+  { path: '/login', component: Login },
   { path: '/', redirect: '/login' },
-  { path: '/home', component: Home }
-]
+  //先跳转到home home 再重定向到welcome 页面
+  // 选译 users 跳转到users页面
+  {
+    path: '/home',
+    component: Home,
+    redirect: '/welcome',
+    children: [
+      { path: '/welcome', component: Welcome }, 
+      { path: '/users', component: Users }
+    ]
+  },
+] 
 
 const router = new VueRouter({
   routes
@@ -18,10 +29,10 @@ const router = new VueRouter({
 
 //挂载路由导航守卫
 router.beforeEach((to, from, next) => {
-  if(to.path === '/login') return next();
+  if (to.path === '/login') return next();
   const tokenStr = window.sessionStorage.getItem('token');
 
-  if(!tokenStr)
+  if (!tokenStr)
     return next('/login');
   next();
 })
