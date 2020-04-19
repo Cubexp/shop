@@ -10,7 +10,7 @@ import TreeTable from 'vue-table-with-tree-grid'
 import axios from 'axios'
 
 //请求的根类径
-axios.defaults.baseURL = 'https://www.liulongbin.top:8888/api/private/v1/'
+axios.defaults.baseURL = 'http://localhost:8888/api/private/v1/'
 //拦截器 设置
 axios.interceptors.request.use(config => {
   console.log(config);
