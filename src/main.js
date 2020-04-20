@@ -4,6 +4,7 @@ import router from './router'
 import './plugins/element.js'
 import './assets/css/global.css'
 import './assets/icon/iconfont.css'
+import ElementUI from 'element-ui'
 
 //富文本编辑器
 import VueQuillEditor from 'vue-quill-editor'
@@ -27,6 +28,7 @@ Vue.prototype.$http = axios
 
 Vue.config.productionTip = false
 
+Vue.use(ElementUI)
 Vue.component('tree-table', TreeTable)
 Vue.use(VueQuillEditor)
 Vue.filter('dateFormat', function(orginVal) {
