@@ -23,6 +23,21 @@ html, body, #app {
 .el-pagination {
     margin-top: 15px;
 }
+
 .el-cascader-menu{
     height: 300px;
-  }
+}
+
+.el-steps {
+    /* 上下15px 左右0  */
+    margin: 15px 0;
+}
+
+.el-step__title {
+    font-size: 13px;
+}
+
+.ql-editor {
+    min-height: 300px;
+}
+

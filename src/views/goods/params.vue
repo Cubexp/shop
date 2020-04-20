@@ -431,7 +431,7 @@ export default {
 
 <style lang="less" scoped>
 .cat_opt {
-  margin: 15px;
+    margin: 15px;
 }
 .el-tag {
     margin: 10px;
